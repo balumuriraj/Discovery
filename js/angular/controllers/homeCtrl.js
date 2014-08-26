@@ -9,9 +9,32 @@
  */
 
 app.controller('HomeCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+    $scope.showasu = true;
+    $scope.asuuser = {userid: '', password: ''};
+    $scope.guestuser = {email: '', name: ''};
+    
+    $scope.toggleclass = function(id) {
+        if(id == 'asu'){
+            $scope.showasu = true; 
+        }
+        else{
+            $scope.showasu = false;    
+        }
+    }
+    
+    $scope.submitASUForm = function(isValid) {
+
+        // check to make sure the form is completely valid
+        if (isValid) {
+            alert("Login success!");
+        }
+    }
+    
+    $scope.submitGuestForm = function(isValid) {
+
+        // check to make sure the form is completely valid
+        if (isValid) {
+            alert("Login success!");
+        }
+    }
 });

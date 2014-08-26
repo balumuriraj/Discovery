@@ -1,48 +1,121 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700,600);
 
-@maincolor: #0099cc;
+@maincolor: #f06060;
 @mainfont: 'Open Sans';
 
-.home-container{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: @maincolor;
-    text-align: center;
-    color: #fff;
-    font-family: @mainfont;
-    
-    .content-block{
-        position: relative;
-        top: 50%;
-        
-        .home-title{
-            margin: 0;
-            font-size: 6em;
-            
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            
-            span{
-                font-weight: bold;
-                opacity: 0.25;
-                color: #111;
+*:focus {
+    outline: none;
+}
+
+ .home-container {
+     position: absolute;
+     width: 100%;
+     height: 100%;
+     background: @maincolor;
+     text-align: center;
+     color: #fff;
+     font-family: @mainfont;
+
+     .content-block {
+         position: relative;
+         top: 50%;
+         -webkit-transform: translateY(-50%);
+         -moz-transform: translateY(-50%);
+         -ms-transform: translateY(-50%);
+         transform: translateY(-50%);
+         padding: 3em;
+         width: 75%;
+         margin: 0 auto;
+         text-align: left;
+         
+         .title-section{
+             .home-title {
+                margin: 0;
+                font-size: 5em;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                span {
+                    font-weight: bold;
+                    opacity: 0.25;
+                    color: #111;
+                }
             }
-        }
-        
-        .home-subtitle{
-            margin: 0;
-            font-size: 1.25em;   
-        }
-        
-        .home-buttons{
-            margin: 2em;
-            button{
-                background: rgba(0,0,0,0.2);
-                outline: none;
-                border: 0;
-                padding: 1em;
+            .home-subtitle {
+                margin: 0;
+                font-size: 1.25em;
             }
-        }
+         }
+         
+         .login-section{
+             padding: 0 3.5em;
+             background: #fff;
+             color: #999;
+             border-radius: 3px;
+             
+            .asu-block{
+                .buttons-toggle-section{
+                    padding: 2em 0 1.5em 0;
+                    button{
+                        width: 49.25%;
+                        display: inline-block;
+                        outline: none;
+                        border: 0;
+                        padding: 0.5em;
+                        font-size: 2em;
+                        font-weight: bold;
+                        text-transform: uppercase;
+                        margin: 0;                        
+                        background: rgba(0,0,0,0.125);
+                    }
+                    
+                    button:active{
+                        position: relative;
+                        top: 2px;
+                    }
+                    
+                    .login-active{
+                        background: #fff;   
+                    }
+                }
+                
+                .login-form{
+                    
+                    .field-block{
+                        margin: 1em 0;
+                        input{  
+                            border: 0;
+                            font-size: 1.25em;
+                            padding: 1em;
+                            color: #999;
+                            width: 100%;  
+                            display: block;
+                            border: 1px solid #ccc;
+                        }                          
+                    }
+                    
+                    button{
+                        outline: none;
+                        border: 0;
+                        background: #f06060;
+                        color: #fff;
+                        padding: 1em;
+                        width: 100%;
+                        margin-bottom: 2em;
+                        font-size: 1.25em;
+                        border-radius: 2px;
+                    }
+
+                    button:hover{
+                        opacity: 0.9;   
+                    }
+
+                    button:active{
+                        position: relative;
+                        top: 2px;
+                    } 
+                }               
+                
+            }
+         }
     }
 }
