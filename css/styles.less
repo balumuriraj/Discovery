@@ -1,35 +1,34 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700,600);
-
-@maincolor: #f06060;
+@othercolor: #0099cc;
+@maincolor: #0099cc;
 @mainfont: 'Open Sans';
-
-*:focus {
+ *:focus {
     outline: none;
 }
 
- .home-container {
-     position: absolute;
-     width: 100%;
-     height: 100%;
-     background: @maincolor;
-     text-align: center;
-     color: #fff;
-     font-family: @mainfont;
+.home-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: @maincolor;
+    text-align: center;
+    color: #fff;
+    font-family: @mainfont;
 
-     .content-block {
-         position: relative;
-         top: 50%;
-         -webkit-transform: translateY(-50%);
-         -moz-transform: translateY(-50%);
-         -ms-transform: translateY(-50%);
-         transform: translateY(-50%);
-         padding: 3em;
-         width: 75%;
-         margin: 0 auto;
-         text-align: left;
-         
-         .title-section{
-             .home-title {
+    .content-block {
+        position: relative;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+        padding: 3em;
+        width: 75%;
+        max-width: 1440px;
+        margin: 0 auto;
+        text-align: left;
+        .title-section {
+            .home-title {
                 margin: 0;
                 font-size: 5em;
                 letter-spacing: 1px;
@@ -44,18 +43,20 @@
                 margin: 0;
                 font-size: 1.25em;
             }
-         }
-         
-         .login-section{
-             padding: 0 3.5em;
-             background: #fff;
-             color: #999;
-             border-radius: 3px;
-             
-            .asu-block{
-                .buttons-toggle-section{
-                    padding: 2em 0 1.5em 0;
-                    button{
+            img {
+                padding: 2em;
+                width: 100%;
+            }
+        }
+        .login-section {
+            padding: 3.5em 3.5em;
+            background: #fff;
+            color: #aaa;
+            border-radius: 3px;
+            .asu-block {
+                .buttons-toggle-section {
+                    padding: 0 0 1em 0;
+                    button {
                         width: 49.25%;
                         display: inline-block;
                         outline: none;
@@ -64,58 +65,52 @@
                         font-size: 2em;
                         font-weight: bold;
                         text-transform: uppercase;
-                        margin: 0;                        
-                        background: rgba(0,0,0,0.125);
+                        margin: 0;
+                        background: rgba(0, 0, 0, 0.1);
                     }
-                    
-                    button:active{
+                    button:active {
                         position: relative;
                         top: 2px;
                     }
-                    
-                    .login-active{
-                        background: #fff;   
+                    .login-active {
+                        background: #fff;
                     }
                 }
-                
-                .login-form{
-                    
-                    .field-block{
+                .login-form {
+                    .field-block {
                         margin: 1em 0;
-                        input{  
+                        input {
                             border: 0;
                             font-size: 1.25em;
                             padding: 1em;
                             color: #999;
-                            width: 100%;  
+                            width: 100%;
                             display: block;
                             border: 1px solid #ccc;
-                        }                          
+                        }
+                        .field-error {
+                            border: 1px solid #f06060;
+                        }
                     }
-                    
-                    button{
+                    button {
                         outline: none;
                         border: 0;
-                        background: #f06060;
+                        background: @maincolor;
                         color: #fff;
                         padding: 1em;
                         width: 100%;
-                        margin-bottom: 2em;
                         font-size: 1.25em;
                         border-radius: 2px;
                     }
-
-                    button:hover{
-                        opacity: 0.9;   
+                    button:hover {
+                        opacity: 0.9;
                     }
-
-                    button:active{
+                    button:active {
                         position: relative;
                         top: 2px;
-                    } 
-                }               
-                
+                    }
+                }
             }
-         }
+        }
     }
 }

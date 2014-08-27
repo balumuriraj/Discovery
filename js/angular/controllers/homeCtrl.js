@@ -16,9 +16,13 @@ app.controller('HomeCtrl', function ($scope) {
     $scope.toggleclass = function(id) {
         if(id == 'asu'){
             $scope.showasu = true; 
+            $scope.guestuser = {email: '', name: ''};
+            $scope.guestForm.$setPristine();
         }
         else{
             $scope.showasu = false;    
+            $scope.asuuser = {userid: '', password: ''};
+            $scope.asuForm.$setPristine();
         }
     }
     
@@ -34,7 +38,7 @@ app.controller('HomeCtrl', function ($scope) {
 
         // check to make sure the form is completely valid
         if (isValid) {
-            alert("Login success!");
+            alert("Login Guest success!");
         }
     }
 });

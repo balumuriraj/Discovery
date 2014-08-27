@@ -1,10 +1,11 @@
-<div class="home-container">
+<div class="home-container" ng-controller="HomeCtrl">
     <div class="content-block container-fluid">
         <div class="row">
             <div class="col-md-7">
                 <div class="title-section">
                     <p class="home-title"><span>Discovery</span> Lab</p>
-                    <p class="home-subtitle">An interactive Lab with numerous questions that helps honing the skills of the students</p>
+                    <p class="home-subtitle hidden-xs hidden-sm">An interactive Lab with numerous questions that helps honing the skills of the students</p>
+                    <img src="/img/svg/discovery-home.svg" class="hidden-xs hidden-sm" />
                 </div>
             </div>
             <div class="col-md-5">
@@ -17,13 +18,11 @@
                         <div ng-show="showasu" class="login-form">
                             <form name="asuForm" ng-submit="submitASUForm(asuForm.$valid)" novalidate>
                                 <div class="field-block">
-                                    <input type="text" name ="userid" ng-model="asuuser.userid" placeholder="ASURITE User ID">
-                                    <p ng-show="asuForm.userid.$error.required && !asuForm.userid.$pristine">User ID is required</p>
+                                    <input type="text" ng-class="{ 'field-error' : asuForm.userid.$error.required && !asuForm.userid.$pristine }" name ="userid" ng-model="asuuser.userid" placeholder="ASURITE User ID" required>
                                 </div>
                                 
                                 <div class="field-block">
-                                    <input type="password" name ="password" ng-model="asuuser.password" placeholder="password">
-                                    <p ng-show="asuForm.password.$error.required && !asuForm.password.$pristine">Password is required</p>
+                                    <input type="password" ng-class="{ 'field-error' : asuForm.password.$error.required && !asuForm.password.$pristine }" name ="password" ng-model="asuuser.password" placeholder="password" required>
                                 </div>
                                 
                                 <button type="submit" ng-disabled="asuForm.$invalid">Log In</button>
@@ -31,17 +30,13 @@
                         </div>
                         
                         <div ng-hide="showasu" class="login-form">
-                            {{guestuser}}
                             <form name="guestForm" ng-submit="submitGuestForm(guestForm.$valid)" novalidate>
                                 <div class="field-block">
-                                    <input type="text" name ="email" ng-model="guestuser.email" placeholder="Enter your Email">
-                                    <p ng-show="guestForm.email.$error.required && !guestForm.email.$pristine">Email is required</p>
-                                    <p ng-show="guestForm.email.$error.email && !guestForm.email.$pristine">Email is invalid </p>
+                                    <input type="email" ng-class="{ 'field-error' : guestForm.email.$error.required && !guestForm.email.$pristine || guestForm.email.$error.email && !guestForm.email.$pristine}" name ="email" ng-model="guestuser.email" placeholder="Enter your Email" required>
                                 </div>
                                 
                                 <div class="field-block">
-                                    <input type="text" name ="name" ng-model="guestuser.name" placeholder="Enter your Name">
-                                    <p ng-show="guestForm.name.$error.required && !guestForm.name.$pristine">Password is required</p>
+                                    <input type="text" ng-class="{ 'field-error' : guestForm.name.$error.required && !guestForm.name.$pristine }" name ="name" ng-model="guestuser.name" placeholder="Enter your Name" required>
                                 </div>
                                 
                                 <button type="submit" ng-disabled="guestForm.$invalid">Log In</button>
