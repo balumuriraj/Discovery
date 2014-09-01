@@ -25,6 +25,8 @@
                                     <input type="password" ng-class="{ 'field-error' : asuForm.password.$error.required && !asuForm.password.$pristine }" name ="password" ng-model="asuuser.password" placeholder="password" required>
                                 </div>
                                 
+                                <div ng-show="serviceerror" class="service-error">Login Failed! Please Try again..</div>
+                                
                                 <button type="submit" ng-disabled="asuForm.$invalid">Log In</button>
                             </form>
                         </div>
@@ -39,7 +41,10 @@
                                     <input type="text" ng-class="{ 'field-error' : guestForm.name.$error.required && !guestForm.name.$pristine }" name ="name" ng-model="guestuser.name" placeholder="Enter your Name" required>
                                 </div>
                                 
-                                <button type="submit" ng-disabled="guestForm.$invalid">Log In</button>
+                                <div ng-show="serviceerror" class="service-error">Login Failed! Please Try again..</div>
+                                
+                                <button type="submit" ng-disabled="guestForm.$invalid" ng-hide="loading">Log In</button>
+                                <button ng-show="loading" class="loading-bttn"><i class="fa fa-spinner fa-spin"></i> Logging in..</button>
                             </form>
                         </div>
                     </div>

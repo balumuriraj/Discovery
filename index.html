@@ -22,6 +22,7 @@
     
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/media-queries.css">
@@ -32,6 +33,7 @@
     <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
+    <div ng-include src="'/js/angular/partials/alertmsg.html'"></div>
 
     <!-- MAIN CONTENT AND INJECTED VIEWS -->
     <section class="angular-section">
@@ -62,6 +64,14 @@
     <!-- App Libs -->
     <script src="js/angular/app.js"></script>
     <script src="js/angular/controllers/homeCtrl.js"></script>
+    <script src="js/angular/controllers/headerCtrl.js"></script>
+    <script src="js/angular/controllers/labsCtrl.js"></script>
+    <script src="js/angular/controllers/profileCtrl.js"></script>
+    <script src="js/angular/controllers/consentCtrl.js"></script>
+    <script src="js/angular/controllers/adminCtrl.js"></script>
+    
+    <script src="js/angular/services/user-service.js"></script>
+    <script src="js/angular/services/labs-service.js"></script>
 
     <!-- custom -->
     <script src="js/libs/custom/plugins.js"></script>

@@ -8,21 +8,27 @@
  * Controller of the discoveryApp
  */
 
-app.controller('HomeCtrl', function ($scope) {
+app.controller('HomeCtrl', ['$scope', '$location', 'userFactory', function ($scope, $location, userFactory) {
     $scope.showasu = true;
     $scope.asuuser = {userid: '', password: ''};
     $scope.guestuser = {email: '', name: ''};
+    $scope.loading = false;
+    $scope.serviceerror = false;
     
     $scope.toggleclass = function(id) {
         if(id == 'asu'){
             $scope.showasu = true; 
             $scope.guestuser = {email: '', name: ''};
             $scope.guestForm.$setPristine();
+            $scope.loading = false;
+            $scope.serviceerror = false;
         }
         else{
             $scope.showasu = false;    
             $scope.asuuser = {userid: '', password: ''};
             $scope.asuForm.$setPristine();
+            $scope.loading = false;
+            $scope.serviceerror = false;
         }
     }
     
@@ -36,9 +42,20 @@ app.controller('HomeCtrl', function ($scope) {
     
     $scope.submitGuestForm = function(isValid) {
 
+        $scope.loading = true;
+        
         // check to make sure the form is completely valid
         if (isValid) {
-            alert("Login Guest success!");
+            userFactory.guestUserLogin($scope.guestuser)
+                .success(function(responsedata){
+                    $scope.loading = false;
+                    $scope.serviceerror = false;
+                    $location.path('/labs');
+                })
+                .error(function(data) {
+                    $scope.loading = false;
+                    $scope.serviceerror = true;
+                });
         }
     }
-});
+}]);
