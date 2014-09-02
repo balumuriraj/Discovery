@@ -8,8 +8,8 @@
  * Controller of the discoveryApp
  */
 
-app.controller('LabsCtrl', ['$scope', 'labsFactory',
-    function ($scope, labsFactory) {
+app.controller('LabsCtrl', ['$scope', '$location', 'labsFactory',
+    function ($scope, $location, labsFactory) {
 
         function init() {
             labsFactory.getAllLabs()
@@ -22,4 +22,8 @@ app.controller('LabsCtrl', ['$scope', 'labsFactory',
         };
         
         init();
+        
+        $scope.startLab = function(id){
+            $location.path('/consent/'+id);
+        }
 }]);

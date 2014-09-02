@@ -2,16 +2,15 @@
 
 /**
  * @ngdoc function
- * @name discoveryApp.controller:ConsentCtrl
+ * @name discoveryApp.controller:QuizCtrl
  * @description
- * # ConsentCtrl
+ * # QuizCtrl
  * Controller of the discoveryApp
  */
 
-app.controller('ConsentCtrl', ['$scope', '$location', '$routeParams', 'labsFactory',
-    function ($scope, $location, $routeParams, labsFactory) {
-        
-        function init(){
+app.controller('QuizCtrl', ['$scope', '$routeParams', 'labsFactory', 'userFactory', function ($scope, $routeParams, labsFactory, userFactory) {
+    
+    function init(){
             console.log("Id is " + $routeParams.id);            
             var id = $routeParams.id;
             
@@ -22,13 +21,18 @@ app.controller('ConsentCtrl', ['$scope', '$location', '$routeParams', 'labsFacto
                 .error(function(data) {
                     alert("Please try again");
                 });
+        
+            userFactory.getUser()
+                .success(function(responsedata){
+                    $scope.user = responsedata;
+                })
+                .error(function(data) {
+                    alert("Please try again");
+                });
 
         };
         
         init();
-        
-        $scope.startLab = function(id){
-            $location.path('/lab/'+id);
-        }
-
+    
+    
 }]);

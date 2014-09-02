@@ -17,9 +17,26 @@ app.factory('userFactory', ['$http', '$cookieStore', function($http, $cookieStor
             .success(function(responseData) {
                 console.log("Guest user logged in: " + responseData.name);
                 $cookieStore.put('loggedin', 'true');
+                $cookieStore.put('userid', responseData.id);
             })
             .error(function(data) {
                 console.log("Guest user log in failed..");
+            });
+        },
+        
+        getUser: function(){
+            var userid = $cookieStore.get('userid');
+            
+            return $http({
+                url: baseUrl + '/getUser/' + userid,
+                method: "GET"
+            })
+            .success(function(responseData) {
+                console.log("Got User ..");
+                return responseData;
+            })
+            .error(function(data) {
+                console.log("Get User failed..");
             });
         },
         
@@ -35,6 +52,7 @@ app.factory('userFactory', ['$http', '$cookieStore', function($http, $cookieStor
         
         logout: function(){
             $cookieStore.remove('loggedin');
+            $cookieStore.remove('userid');
         },
     };
 }]);

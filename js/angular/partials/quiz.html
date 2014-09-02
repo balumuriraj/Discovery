@@ -1,0 +1,107 @@
+<div ng-controller="HeaderCtrl">
+    <header>
+        <div class="headbar clearfix">
+            <div class="logo">
+                <p>{{lab.labname}}</p>
+            </div>
+            <div class="menu hidden-xs">
+                <a href="">help</a>
+                <button ng-click="logout()">Sign Out</button>
+            </div>
+            <div class="mobile-menu visible-xs">
+                <i class="fa fa-bars"></i>
+            </div>
+        </div>
+    </header>
+</div>
+
+<div class="quiz-container" ng-controller="QuizCtrl">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="question-progress-container">
+                    <div class="progress-block">
+                        <div class="row"> 
+                            <div class="col-md-10">
+                                <span><strong>Progress</strong></span>
+                                <span><strong>13</strong></span>
+                                <progress max="100" value="80"></progress>
+                            </div>	
+                            <div class="col-md-2 hidden-sm hidden-xs">
+                                <button>Submit</button>
+                            </div>					
+                        </div>
+                    </div>
+                    <div class="question-block">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <p><strong>Question</strong></p>
+                                <p>How much does it cost (in dollars) to operate a street lamp in Tempe, Arizona for one year?</p>
+                                <p>Street lamps shine brighter than a household 100 W bulb, but they are more efficient as well. Assume a street lamp is on every night. Estimate the following values to get the result.</p>
+                                <br>
+                                <button><i class="fa fa-bell"></i> Hint</button>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="quiz-image hidden-xs"> 
+                                    <img src="\img\Magnitude\Q9_1.png" class="col-md-12" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <br>
+        
+        <div class="row">
+            <div class="col-md-8">
+                <div class="subquestion-container">
+                    <div class="sub-question-block">
+                        <p>Estimate the Wattage of a street lamp:</p>
+                        <p>Drag the button to the estimated value of the given range.</p>   
+                    </div>   
+                    <div class="answer-block">
+                        <p>your estimated value is <span id="range" >0</span></p>
+				        <input type="range" id="bar" min=0 max=5000 value=0 step=50  />
+                    </div>   
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="timer-score-container">
+                    <div class="side-block">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="icon-block">
+                                    <i class="fa fa-clock-o"></i>
+                                    <p>clock</p>
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="counter-block">
+                                    <p>00:00</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>     
+                    <br>
+                    <div class="side-block">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="icon-block">
+                                    <i class="fa fa-pencil"></i>
+                                    <p>score</p>
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="counter-block">
+                                    <p>10.33</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

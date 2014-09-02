@@ -11,7 +11,7 @@
 app.controller('HomeCtrl', ['$scope', '$location', 'userFactory', function ($scope, $location, userFactory) {
     $scope.showasu = true;
     $scope.asuuser = {userid: '', password: ''};
-    $scope.guestuser = {email: '', name: ''};
+    $scope.guestuser = {id:'', email: '', name: ''};
     $scope.loading = false;
     $scope.serviceerror = false;
     

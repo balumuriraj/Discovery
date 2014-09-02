@@ -45,9 +45,14 @@ app.config(function ($routeProvider) {
             controller: 'ProfileCtrl',
             access: false
         })
-        .when('/consent', {
-            templateUrl: '/js/angular/partials/profile.html',
+        .when('/consent/:id', {
+            templateUrl: '/js/angular/partials/consent.html',
             controller: 'ConsentCtrl',
+            access: false
+        })
+        .when('/lab/:id', {
+            templateUrl: '/js/angular/partials/quiz.html',
+            controller: 'QuizCtrl',
             access: false
         })
         .otherwise({

@@ -8,6 +8,12 @@
  * Controller of the discoveryApp
  */
 
-app.controller('ProfileCtrl', ['$scope', '$location', 'userFactory', function ($scope, $location, userFactory) {
-
+app.controller('ProfileCtrl', ['$scope', 'userFactory', function ($scope, userFactory) {
+    userFactory.getUser()
+        .success(function(responsedata){
+            $scope.user = responsedata;
+        })
+        .error(function(data) {
+            alert("Please try again");
+        });
 }]);
