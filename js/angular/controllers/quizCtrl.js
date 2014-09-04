@@ -8,21 +8,21 @@
  * Controller of the discoveryApp
  */
 
-app.controller('QuizCtrl', ['$scope', '$routeParams', 'labsFactory', 'userFactory', function ($scope, $routeParams, labsFactory, userFactory) {
-    $scope.test;
-    $scope.currentquestion = 0;
+app.controller('QuizCtrl', ['$scope', '$routeParams', '$cookieStore', '$location', 'labsFactory', 'userFactory', 'quizFactory', function ($scope, $routeParams, $cookieStore, $location, labsFactory, userFactory, quizFactory) {
+    
     $scope.useranswer = {
         "id": "",
         "userid": "",
         "labid": "",
-        "progress": "",
+        "currentquestion": "",
         "score": "",
         "clock": "",
+        "submitstatus": "",
         "answers": [] 
     };
     
     $scope.emptyAnswer = {
-        "id": "",
+        "id": "",        
         "subanswers": []
     };
     
@@ -45,9 +45,8 @@ app.controller('QuizCtrl', ['$scope', '$routeParams', 'labsFactory', 'userFactor
                         
                         $scope.useranswer.userid = $scope.user.id;
                         $scope.useranswer.labid = id;
-                        $scope.useranswer.progress = 0;
+                        $scope.useranswer.currentquestion = 0;
                         $scope.useranswer.score = 0;
-                        $scope.useranswer.clock = 0;
                         
                         for(var i=0; i<$scope.lab.labquestions.length; i++)
                         {
@@ -74,12 +73,42 @@ app.controller('QuizCtrl', ['$scope', '$routeParams', 'labsFactory', 'userFactor
             .error(function(data) {
                 alert("Please try again");
             });
+        
+        var timer = $cookieStore.get('timer');
+        if(timer == null)
+        {
+            timer = 0;
+        } 
+        
+        $scope.useranswer.clock = timer;
+        
     };
         
     init();
 
     $scope.onDropComplete=function(data,evt,ques,index){        
         $scope.useranswer.answers[ques].subanswers[index].subanswer = data;
+    }
+    
+    $scope.submitAnswer = function(useranswer) {        
+        
+        quizFactory.submitAnswer(useranswer)
+            .success(function(responsedata){
+                var currentques = responsedata.currentquestion;
+                
+                console.log("Current Ques: "+ currentques);
+                
+                if(currentques == responsedata.answers.length){
+                    console.log("Removing timer..");
+                    $cookieStore.remove('timer');
+                    $location.path('/report/'+responsedata.id);
+                }
+                
+                $scope.useranswer = responsedata;
+            })
+            .error(function(data) {
+                alert("Please try again");
+            });
     }
 
     

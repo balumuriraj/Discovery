@@ -16,7 +16,8 @@ var app = angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'ngDraggable'
+    'ngDraggable',
+    'ngTimer'
   ]);
 
 app.config(function ($routeProvider) {
@@ -54,6 +55,11 @@ app.config(function ($routeProvider) {
         .when('/lab/:id', {
             templateUrl: '/js/angular/partials/quiz.html',
             controller: 'QuizCtrl',
+            access: false
+        })
+        .when('/report/:id', {
+            templateUrl: '/js/angular/partials/report.html',
+            controller: 'ReportCtrl',
             access: false
         })
         .otherwise({

@@ -838,6 +838,7 @@ color: #fff;
                 background: @greencolor;
                 width: 100%;
                 font-size: 1.25em;
+                padding: 0.75em 0;
             }
             
             button:active{
@@ -876,11 +877,18 @@ color: #fff;
                 opacity: 0.7;
                 background: #fff;
                 color: rgba(0,0,0,0.5);
+                margin-bottom: 2em;
             }
             
             button:active{
                 position: relative;
                 top: 2px;
+            }
+            
+            .quiz-image{
+                img {
+                    width: 100%;                    
+                }
             }
         }
     }
@@ -1010,49 +1018,112 @@ color: #fff;
                 box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
             }
             
-            .choice-field input[type="radio"]{
-                display: none;
+            .choice-field {
+                font-size: 1.25em; 
+                
+                input[type="radio"]{
+                    display: none;
+                }
+                
+                input[type="radio"]:checked+label {
+                    background: #7ea568;
+                    color: #fff;
+                    -webkit-box-shadow: 0 5px 6px -6px black;
+                    -moz-box-shadow: 0 5px 6px -6px black;
+                    box-shadow: 0 5px 6px -6px black;
+                    
+                    strong{
+                        color: #fff;
+                        border: 2px solid #fff;
+                    }
+                }
+                
+                label{
+                    display: block;
+                    padding: 1.25em 2em;
+                    background: rgba(0,0,0,0.1);
+                    color: #aaa;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    
+                    strong{
+                        padding: 0.25em 0.75em;
+                        border: 2px solid #aaa;
+                        color: #aaa;
+                        border-radius: 5px;
+                    }
+                    
+                     span{
+                        padding: 2em;
+                    }
+                }
+                
+                label:hover{
+                    background: rgba(0,0,0,0.1);
+                    opacity: 1;
+                    color: #555;
+                }
+            }
+            
+            input[type="range"]{
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                border-radius: 6px;
+                height: 6px;
+                width:100%;
+                background: #aaa;
             }
 
-            .choice-field label{
-                display: block;
-                padding: 1.25em 2em;
-                background: #ddd;
-                color: #aaa;
-                border-radius: 5px;
-                cursor: pointer;
+            input[type=range]::-moz-range-track {
+                border-radius: 6px;
+                height: 6px;
+                width:100%;
+                background: #aaa;
             }
 
-            .choice-field label:hover{
-                background: #eee;
-                opacity: 1;
-                color: #555;
+            input[type='range']::-webkit-slider-thumb {
+                -webkit-appearance: none !important;
+                background-color: #E9E9E9;
+                border: 1px solid #CECECE;
+                height: 15px;
+                width: 15px;
+                border-radius: 2px;
             }
 
-            .choice-field label strong{
-                padding: 0.25em 0.75em;
-                border: 2px solid #aaa;
-                color: #aaa;
-                border-radius: 5px;
-            }
-
-            .choice-field label span{
-                padding: 2em;
-            }
-
-            .choice-field input[type="radio"]:checked+label {
-              background: #7ea568;
-              color: #fff;
-              -webkit-box-shadow: 0 5px 6px -6px black;
-                   -moz-box-shadow: 0 5px 6px -6px black;
-                        box-shadow: 0 5px 6px -6px black;
-            }
-
-            .choice-field input[type="radio"]:checked+label strong{
-              color: #fff;
-              border: 2px solid #fff;
-            }
+            input[type=range]::-moz-range-thumb {
+                -moz-appearance:none !important;
+                background-color: #E9E9E9;
+                border: 1px solid #CECECE;
+                height: 15px;
+                width: 15px;
+                border-radius: 2px;
+            } 
 
         }
     }
+}
+
+/**** Bootstrap custom ****/
+
+.modal-header{
+    background: @maincolor;   
+    border-radius: 5px 5px 0 0;
+}
+
+.modal-title{
+    color: #fff;   
+    font-size: 3em;
+    font-weight: bold;
+}
+
+.modal-body{
+	color: #999;
+	font-size: 1.5em;
+    padding: 2em;
+}
+
+.modal-footer {
+	background: #eee;
+    border-radius: 0 0 5px 5px ;
 }

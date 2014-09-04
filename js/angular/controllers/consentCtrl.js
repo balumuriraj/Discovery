@@ -8,8 +8,8 @@
  * Controller of the discoveryApp
  */
 
-app.controller('ConsentCtrl', ['$scope', '$location', '$routeParams', 'labsFactory',
-    function ($scope, $location, $routeParams, labsFactory) {
+app.controller('ConsentCtrl', ['$scope', '$location', '$routeParams', '$cookieStore', 'labsFactory',
+    function ($scope, $location, $routeParams, $cookieStore, labsFactory) {
         
         function init(){
             console.log("Id is " + $routeParams.id);            
@@ -28,6 +28,9 @@ app.controller('ConsentCtrl', ['$scope', '$location', '$routeParams', 'labsFacto
         init();
         
         $scope.startLab = function(id){
+            
+            $cookieStore.put('timer', 0);
+            
             $location.path('/lab/'+id);
         }
 

@@ -53,6 +53,7 @@ app.factory('userFactory', ['$http', '$cookieStore', function($http, $cookieStor
         logout: function(){
             $cookieStore.remove('loggedin');
             $cookieStore.remove('userid');
-        },
+            $cookieStore.remove('timer');
+        }
     };
 }]);
